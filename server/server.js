@@ -3,6 +3,6 @@ const app = express();
 
 const naverShoppingRouter = require("./routes/naverShopping");
 
-app.use("/shop", naverShoppingRouter);
+app.use("/naver", naverShoppingRouter);
 
 module.exports = app;
