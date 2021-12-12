@@ -7,7 +7,7 @@ const ProductItem = ({ searchResult }) => {
   return (
     <ProductItemTemplate>
       {title}
-      <Button />
+      <Button productId={productId} />
     </ProductItemTemplate>
   );
 };

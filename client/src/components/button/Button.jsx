@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = () => {
-  return <ButtonTemplate>구매</ButtonTemplate>;
+const Button = ({ productId }) => {
+  const buyProduct = () => {
+    console.log(productId);
+  };
+
+  return <ButtonTemplate onClick={buyProduct}>구매</ButtonTemplate>;
 };
 
 const ButtonTemplate = styled.button`
