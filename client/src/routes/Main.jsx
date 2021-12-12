@@ -15,6 +15,7 @@ const Main = () => {
   const [purchase, setPurchase] = useState({});
 
   const changeHandler = (text) => {
+    console.log("메인에 들어온 검색 값: ", text);
     setSearch(text);
   };
 

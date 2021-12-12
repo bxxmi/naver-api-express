@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Keyword from "../keyword/Keyword";
+import KeywordList from "../keyword/KeywordList";
 
 const SearchBar = ({ change, search }) => {
   // 연관 검색어
@@ -11,10 +11,9 @@ const SearchBar = ({ change, search }) => {
 
   const inputText = (event) => {
     const text = event.target.value;
-
-    setKeyword(text);
-    // 해당 값을 검색하는 곳에 넣기 (setKeywords랑 합칠 듯)
+    console.log("입력하는 값 : ", text);
     change(text);
+    setKeyword(text);
     keywordHandler(keyword);
   };
 
@@ -45,7 +44,7 @@ const SearchBar = ({ change, search }) => {
         }}
       />
       <SearchButton onClick={searchText}>검색</SearchButton>
-      <Keyword keywordResult={keywordResult} />
+      <KeywordList keywordResult={keywordResult} change={change} />
     </>
   );
 };
