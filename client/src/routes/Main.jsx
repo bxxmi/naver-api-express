@@ -8,7 +8,7 @@ const Main = () => {
   // 검색할 키워드
   const [search, setSearch] = useState("");
   // 키워드 자동 검색
-  const [keyword, setKeyword] = useState([]);
+  // const [keyword, setKeyword] = useState([]);
   // 검색 결과
   const [result, setResult] = useState({});
 
@@ -20,14 +20,15 @@ const Main = () => {
   // post는 가능
   const searchHandler = () => {
     axios.post("/naver?type=result", { search }).then((response) => {
-      setResult(response.data.items);
+      const products = response.data.items;
+      setResult(products);
     });
   };
 
   return (
     <>
       <SearchBar change={changeHandler} search={searchHandler} />
-      <ProductList />
+      {Object.keys(result).length > 0 && <ProductList searchResult={result} />}
       <Chart />
     </>
   );

@@ -12,7 +12,14 @@ const SearchBar = ({ change, search }) => {
 
   return (
     <>
-      <SearchInput onChange={inputText} />
+      <SearchInput
+        onChange={inputText}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            searchText();
+          }
+        }}
+      />
       <SearchButton onClick={searchText}>검색</SearchButton>
     </>
   );
