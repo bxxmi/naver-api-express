@@ -1,14 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Keyword from "../keyword/Keyword";
 
 const SearchBar = ({ change, search }) => {
+  // 연관 검색어
+  const [keyword, setKeyword] = useState("");
+  // 연관 검색어 결과
+  const [keywordResult, setKeywordResult] = useState([]);
+
   const inputText = (event) => {
-    change(event.target.value);
+    const text = event.target.value;
+
+    setKeyword(text);
+    // 해당 값을 검색하는 곳에 넣기 (setKeywords랑 합칠 듯)
+    change(text);
+    keywordHandler(keyword);
   };
 
   const searchText = () => {
     search();
   };
+
+  const keywordHandler = (keyword) => {
+    axios.post("/naver?type=keyword", { keyword }).then((response) => {
+      const result = response.data.items;
+      setKeywordResult(result);
+    });
+  };
+
+  // 렌더링 성능 개선
+  useEffect(() => {
+    keywordHandler(keyword);
+  }, [keyword]);
 
   return (
     <>
@@ -21,6 +45,7 @@ const SearchBar = ({ change, search }) => {
         }}
       />
       <SearchButton onClick={searchText}>검색</SearchButton>
+      <Keyword keywordResult={keywordResult} />
     </>
   );
 };

@@ -7,10 +7,12 @@ import axios from "axios";
 const Main = () => {
   // 검색할 키워드
   const [search, setSearch] = useState("");
-  // 키워드 자동 검색
-  // const [keyword, setKeyword] = useState([]);
+
   // 검색 결과
   const [result, setResult] = useState({});
+
+  // 구매할 아이템
+  const [purchase, setPurchase] = useState({});
 
   const changeHandler = (text) => {
     setSearch(text);
