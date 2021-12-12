@@ -11,7 +11,7 @@ const SearchBar = ({ change, search }) => {
 
   const inputText = (event) => {
     const text = event.target.value;
-    console.log("입력하는 값 : ", text);
+
     change(text);
     setKeyword(text);
     keywordHandler(keyword);
@@ -32,6 +32,10 @@ const SearchBar = ({ change, search }) => {
   useEffect(() => {
     keywordHandler(keyword);
   }, [keyword]);
+
+  useEffect(() => {
+    setKeywordResult(keywordResult);
+  }, [keywordResult]);
 
   return (
     <>

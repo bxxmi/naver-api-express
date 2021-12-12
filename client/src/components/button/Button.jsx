@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ productId }) => {
+const Button = ({ product, buy }) => {
   const buyProduct = () => {
-    console.log(productId);
+    buy(product);
   };
 
   return <ButtonTemplate onClick={buyProduct}>구매</ButtonTemplate>;

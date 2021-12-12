@@ -15,7 +15,6 @@ const Main = () => {
   const [purchase, setPurchase] = useState({});
 
   const changeHandler = (text) => {
-    console.log("메인에 들어온 검색 값: ", text);
     setSearch(text);
   };
 
@@ -28,10 +27,21 @@ const Main = () => {
     });
   };
 
+  const buyHandler = (item) => {
+    // console.log("살 아이템:" + item);
+    axios.post("/naver?type=buy", { item }).then((response) => {
+      console.log(response);
+      // const products = response.data.items;
+      // setPurchase(response);
+    });
+  };
+
   return (
     <>
       <SearchBar change={changeHandler} search={searchHandler} />
-      {Object.keys(result).length > 0 && <ProductList searchResult={result} />}
+      {Object.keys(result).length > 0 && (
+        <ProductList searchResult={result} buy={buyHandler} />
+      )}
       <Chart />
     </>
   );

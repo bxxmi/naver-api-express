@@ -25,11 +25,11 @@
           #{item.category3},
           #{item.category4},
           1,
-          NOW()
+          now()
         )
-        ON DUPILCATE KEY UPDATE
-        buyCount = buyCount + 1;
-        updateDate = NOW()
+        ON DUPLICATE KEY UPDATE
+        buyCount = buyCount + 1,
+        updateDate = now()
   </insert>
   <!-- 구매된 모든 아이템들 정보가 담기는 쿼리 -->
   <select id="allBuyItem">

@@ -11,7 +11,7 @@ const database = require("../service/dbconnect_module");
 
 // 앞에 자동으로 naver가 붙음(서버에서 만들어 놓은 라우터 경로)
 // 제품 검색
-router.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
   const type = req.query.type;
 
   if (type === "result") {

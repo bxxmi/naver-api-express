@@ -2,12 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../button/Button";
 
-const ProductItem = ({ searchResult }) => {
-  const { productId, title } = searchResult;
+const ProductItem = ({ searchResult, buy }) => {
   return (
     <ProductItemTemplate>
-      {title}
-      <Button productId={productId} />
+      {searchResult.title}
+      <Button product={searchResult} buy={buy} />
     </ProductItemTemplate>
   );
 };

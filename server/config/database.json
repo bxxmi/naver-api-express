@@ -1,9 +1,9 @@
 {
   "connectionLimit": 2,
   "waitForConnections": true,
-  "host": "",
+  "host": "react-study.c7cdinatbebd.ap-northeast-2.rds.amazonaws.com",
   "port": "3306",
-  "database": "",
+  "database": "react",
   "user": "admin",
-  "password": ""
+  "password": "admin1234"
 }
