@@ -3,7 +3,6 @@ import ProductItem from "./ProductItem";
 import styled from "styled-components";
 
 const ProductList = ({ searchResult }) => {
-  console.log(searchResult);
   return (
     <ProductListTemplate>
       {Object.keys(searchResult).map((result) => {
@@ -14,7 +13,7 @@ const ProductList = ({ searchResult }) => {
 };
 
 const ProductListTemplate = styled.ul`
-  width: 500px;
+  width: 100%;
   padding: 0;
   border: 1px solid red;
 `;

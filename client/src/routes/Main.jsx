@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SearchBar from "../components/SearchBar";
-import ProductList from "../components/ProductList";
-import Chart from "../components/Chart";
+import SearchBar from "../components/search/SearchBar";
+import ProductList from "../components/product/ProductList";
+import Chart from "../components/chart/Chart";
 import axios from "axios";
 
 const Main = () => {
