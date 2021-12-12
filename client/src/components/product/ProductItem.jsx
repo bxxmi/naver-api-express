@@ -18,4 +18,5 @@ const ProductItemTemplate = styled.li`
   line-height: 40px;
   border: 1px solid blue;
 `;
+
 export default ProductItem;
