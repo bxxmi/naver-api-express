@@ -7,7 +7,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(express.json());
 
 const naverApi = require("../../config/naver-api.json");
-const { response } = require("express");
+const database = require("../service/dbconnect_module");
 
 // 앞에 자동으로 naver가 붙음(서버에서 만들어 놓은 라우터 경로)
 // 제품 검색
@@ -55,6 +55,23 @@ router.post("/", (req, res) => {
         res.send(body);
       }
     );
+    // 제품 구매
+  } else if (type === "buy") {
+    req.body.mapper = "NaverMapper";
+    req.body.crud = "insert";
+    req.body.mapper_id = "buyItem";
+
+    router.use("/", database);
+    next("route");
+
+    // 구매 리스트
+  } else if (type === "buylist") {
+    req.body.mapper = "NaverMapper";
+    req.body.crud = "select";
+    req.body.mapper_id = "allBuyItem";
+
+    router.use("/", database);
+    next("route");
   }
 });
 

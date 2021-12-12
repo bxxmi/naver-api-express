@@ -3,7 +3,33 @@
 <mapper namespace="NaverMapper">
   <!-- 구매 버튼 누른 아이템의 정보가 담기는 쿼리 -->
   <insert id="buyItem">
-    
+      INSERT into react.product_naver
+      (
+          productId,
+          title,
+          image,
+          category1,
+          category2,
+          category3,
+          category4,
+          buyCount,
+          insertDate
+        )
+        VALUES 
+        (
+          #{item.productId},
+          #{item.title},
+          #{item.image},
+          #{item.category1},
+          #{item.category2},
+          #{item.category3},
+          #{item.category4},
+          1,
+          NOW()
+        )
+        ON DUPILCATE KEY UPDATE
+        buyCount = buyCount + 1;
+        updateDate = NOW()
   </insert>
   <!-- 구매된 모든 아이템들 정보가 담기는 쿼리 -->
   <select id="allBuyItem">
